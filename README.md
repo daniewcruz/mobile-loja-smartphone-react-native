@@ -1,0 +1,1 @@
+# mobile-loja-smartphone-react-native
