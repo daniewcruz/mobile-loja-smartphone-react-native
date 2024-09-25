@@ -15,8 +15,10 @@ export default function TabsLayout() {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: 65,
-                    backgroundColor: '#080a19', 
+                    height: 50,
+                    backgroundColor: '#080a19',   
+
+                    
                 
                     overflow: 'hidden'
 
@@ -24,6 +26,7 @@ export default function TabsLayout() {
                 tabBarAllowFontScaling: false,
                 tabBarActiveTintColor: '#ffb341',
                 tabBarInactiveTintColor: '#fff',
+                
                 
             }}
 
@@ -52,7 +55,7 @@ export default function TabsLayout() {
                
                  title: "Categorias",
                  
-                tabBarIcon: ({ color }) => <FontAwesome size={28} name="th-large" color={color} />
+                tabBarIcon: ({ color }) => <FontAwesome size={24} name="th-large" color={color} />
 
             }} />
 

@@ -1,10 +1,14 @@
 
-import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { getAllProducts } from "../../services/product";
+import ProductItem from "../../components/product-item";
 
 
 export default function Home() {
+    const products = getAllProducts();
+    
     return (
         <SafeAreaView style={styles.container} >
             <StatusBar />
@@ -28,6 +32,24 @@ export default function Home() {
             </View>
 
 
+            <View style={styles.bannerContainer}>
+                <ScrollView horizontal={true} >
+
+                    <View style={styles.banner}>
+
+                        <Image source={require('../../assets/banner1.png')} style={styles.bannerImg} />
+                        <Image source={require('../../assets/banner2.png')} style={styles.bannerImg} />
+
+                    </View>
+
+                </ScrollView>
+            </View>
+
+
+
+
+
+
 
             <View style={styles.categorias}>
                 <Text style={styles.categoriasText}>Categorias</Text>
@@ -37,34 +59,62 @@ export default function Home() {
                     <Icon name="chevron-forward-outline" size={18} color="#757575" />
                 </View>
             </View>
- 
-
-            <ScrollView horizontal={true}>
-
-            <View style={styles.containerCategorias}>
-
-                <View style={styles.backgroundCategorias}>
-                    <Image source={require('../../assets/Laptop.png')} style={styles.categoriaImg} />
-                </View>
-
-                <View style={styles.backgroundCategorias}>
-                    <Image source={require('../../assets/Camera.png')} style={styles.categoriaImg} />
-                </View>
 
 
-                <View style={styles.backgroundCategorias}>
-                    <Image source={require('../../assets/Smartphone.png')} style={styles.cellImg} />
-                </View>
 
 
-                <View style={styles.backgroundCategorias}>
-                    <Image source={require('../../assets/playstation.png')} style={styles.IconGameImg} />
+            <View>
+                <ScrollView horizontal={true}>
+
+                    <View style={styles.containerCategorias}>
+
+                        <View style={styles.backgroundCategorias}>
+                            <Image source={require('../../assets/Laptop.png')} style={styles.categoriaImg} />
+                        </View>
+
+                        <View style={styles.backgroundCategorias}>
+                            <Image source={require('../../assets/Camera.png')} style={styles.categoriaImg} />
+                        </View>
+
+
+                        <View style={styles.backgroundCategorias}>
+                            <Image source={require('../../assets/Smartphone.png')} style={styles.cellImg} />
+                        </View>
+
+
+                        <View style={styles.backgroundCategorias}>
+                            <Image source={require('../../assets/playstation.png')} style={styles.IconGameImg} />
+                        </View>
+                    </View>
+
+                    <View style={styles.backgroundCategorias}>
+                        <Image source={require('../../assets/CCTV.png')} style={styles.cellImg} />
+                    </View>
+                </ScrollView>
+            </View>
+
+
+
+            <View style={styles.principais}>
+                <Text style={styles.principaisText}>Principais Ofertas </Text>
+
+                <View style={styles.categorias2}>
+                    <Text  >Mais  </Text>
+                    <Icon name="chevron-forward-outline" size={18} color="#757575" />
                 </View>
 
             </View>
 
-            </ScrollView>
 
+            <View style={styles.container}>
+            <FlatList
+                data={products}
+                renderItem={({ item }) => <ProductItem data={item} />}
+                keyExtractor={item => item.id.toString()}
+                style={styles.list}
+            />
+        </View>
+            
 
 
 
@@ -152,13 +202,31 @@ const styles = StyleSheet.create({
 
     },
 
+    bannerContainer: {
+        height: 150,
+
+        marginBottom: 10,
+
+    },
+
+    banner: {
+        flexDirection: 'row',
+        width: '100%',
+        height: 130,
+    },
+
+    bannerImg: {
+        resizeMode: 'cover',
+        marginRight: 5,
+        marginLeft: 10,
+    },
+
     categorias: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        marginTop: 5,
-        marginBottom: 10,
+        marginBottom: 6,
 
     },
     categoriasText: {
@@ -172,9 +240,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
 
-        marginTop: 5,
-        marginBottom: 10,
-
     },
 
     containerCategorias: {
@@ -184,10 +249,10 @@ const styles = StyleSheet.create({
 
     backgroundCategorias: {
         flexDirection: 'row',
-        height: 60,
-        width: 70,
+        height: 51,
+        width: 61,
         borderRadius: 10,
-        borderWidth: 1,
+
         borderColor: '#080a19',
         left: 20,
         backgroundColor: '#ffb341',
@@ -208,7 +273,7 @@ const styles = StyleSheet.create({
 
     cellImg: {
         resizeMode: 'cover',
-       
+
 
     },
 
@@ -217,7 +282,32 @@ const styles = StyleSheet.create({
 
     },
 
+    principais: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
+        marginBottom: 6,
+        marginTop: 20,
 
+
+    },
+    principaisText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+
+
+
+    
+
+
+    
+
+    
+
+    
 
 
 
