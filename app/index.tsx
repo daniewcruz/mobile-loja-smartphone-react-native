@@ -2,21 +2,28 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { Link, router } from "expo-router";
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Button } from "../components/button";
 
+const Start = () => {
+    router.replace('/home');
+}
 
 export default function Screen() {
     return (
         <SafeAreaView style={styles.container} >
         <View style={styles.logo}>
-           <Image source={require('../assets/logo-triangulo.png')} style={styles.img}/>
+           <Image source={require('../assets/logo-triangular.png')} style={styles.img}/>
             <Text style={styles.text}>TechZen Store</Text>
             </View>
             {/* <Text style={styles.descricao}>Sua loja de tecnologia na palma da sua mão.</Text> */}
             <Text style={styles.subdescricao}>Sua loja de tecnologia na palma da sua mão. Conectando você com as melhores ofertas e tendências tecnológicas do mercado.</Text>
 
-            <Pressable style={styles.button}  onPress={() => router.replace('/home')}>
-                <Icon name="chevron-forward-outline" size={40} color="#fff" />
-            </Pressable>
+            
+
+            <Button
+                title="Começar as compras"
+                onPress={Start}
+            />
         
 
             
@@ -27,7 +34,7 @@ export default function Screen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#080a19',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
         fontSize: 35,
        
         fontWeight: 'bold',
-        color: '#fff',
+        color: '#080a19',
        
         letterSpacing: 5,
         textAlign: 'center',
@@ -58,17 +65,20 @@ const styles = StyleSheet.create({
     descricao: {
         fontSize: 17,
         fontWeight: 'bold',
-        color: '#fff',
+        color: '#080a19',
         textAlign: 'center',
         marginBottom: 20,
 
 
     },
     subdescricao: {
-        fontSize: 16,
-        color: '#fff',
+        fontSize: 17,
+        fontWeight: 'bold',
+        color: '#080a19',
         textAlign: 'center',
-        marginBottom: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 50,
         marginTop: 20,
     },
     txt: {

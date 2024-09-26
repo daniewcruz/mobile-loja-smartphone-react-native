@@ -30,18 +30,23 @@ export default function ProductItem({data}: Props) {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
+        width: '100%',
+        height: 150,
+        marginTop: 10,
         marginBottom: 10,
         padding: 10,
         backgroundColor: '#FFFFFF',
         borderRadius: 10,
-        shadowColor: '#000',
+        shadowColor: '#000000',
         shadowOffset: {
             width: 0,
             height: 2
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5
+
+        elevation: 2,
+        alignItems: 'center'
     },
 
     img: {

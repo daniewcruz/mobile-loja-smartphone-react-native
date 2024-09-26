@@ -10,7 +10,10 @@ export default function Home() {
     const products = getAllProducts();
     
     return (
+        <View>
+        <ScrollView>
         <SafeAreaView style={styles.container} >
+           
             <StatusBar />
             <View style={styles.pesquisarcx}>
 
@@ -106,7 +109,7 @@ export default function Home() {
             </View>
 
 
-            <View style={styles.container}>
+            <View style={styles.container1}>
             <FlatList
                 data={products}
                 renderItem={({ item }) => <ProductItem data={item} />}
@@ -121,6 +124,8 @@ export default function Home() {
 
 
         </SafeAreaView>
+        </ScrollView>
+        </View>
     );
 }
 
@@ -298,18 +303,25 @@ const styles = StyleSheet.create({
         color: '#000000',
     },
 
+    container1: {
+        backgroundColor: '#fffefc',
+        flex: 1,
+        padding: 10,
+        borderRadius: 10,
+        marginTop: 10,  
+    },
 
+    list: {
+        flex: 1,
+        
+        width: '100%',
 
-    
+        padding: 10,
 
+    },
 
-    
+        
 
-    
-
-    
-
-
-
+   
 
 });

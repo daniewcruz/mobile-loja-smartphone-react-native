@@ -51,6 +51,7 @@ export default function TabsLayout() {
 
             <Tabs.Screen name="categories" options={{
                 tabBarLabelPosition: 'below-icon',
+                headerShown: false,
                
                
                  title: "Categorias",
