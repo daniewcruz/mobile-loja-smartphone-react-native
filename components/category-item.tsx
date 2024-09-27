@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
 
     box: {
         height: 150,
+        width: 330,
         marginTop: -150,
         justifyContent: 'center',
         alignItems: 'center'
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
 
     title: {
         color: 'white',
-        fontSize: 28,
+        fontSize: 24,
         fontWeight: 'bold'
     }
 })

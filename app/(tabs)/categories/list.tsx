@@ -12,8 +12,8 @@ export default function Screen() {
     const categories = getAllCategories();
 
     return (
-
-        <View style={styles.container}>
+       <SafeAreaView style={styles.container} >
+        <View >
             <FlatList
                 data={categories}
                 renderItem={({ item }) =><CategoryItem data={item} />}
@@ -23,6 +23,8 @@ export default function Screen() {
             />
         </View>
 
+       </SafeAreaView>
+
 
     );
 }
@@ -30,16 +32,26 @@ export default function Screen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: -50,
+        marginTop: -34,   
     },
     list: {
         flex: 1,
         width: '100%',
-        padding: 20
+        height: '100%',
+        marginBottom: 100,
+        padding: 10,
+
+        
+       
     },
     listContent: {
-        paddingBottom: 20
+        paddingBottom: 20,
+    
+     
     }
   
 

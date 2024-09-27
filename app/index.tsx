@@ -1,5 +1,5 @@
 import { SafeAreaView } from "react-native-safe-area-context"
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable, ImageBackground } from "react-native";
 import { Link, router } from "expo-router";
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Button } from "../components/button";
@@ -10,13 +10,18 @@ const Start = () => {
 
 export default function Screen() {
     return (
+        
         <SafeAreaView style={styles.container} >
+
+            <Image source={require('../assets/bemVindo.png')} style={styles.bemVindo}/>
+           
         <View style={styles.logo}>
+        
            <Image source={require('../assets/logo-triangular.png')} style={styles.img}/>
             <Text style={styles.text}>TechZen Store</Text>
             </View>
-            {/* <Text style={styles.descricao}>Sua loja de tecnologia na palma da sua mão.</Text> */}
-            <Text style={styles.subdescricao}>Sua loja de tecnologia na palma da sua mão. Conectando você com as melhores ofertas e tendências tecnológicas do mercado.</Text>
+            <Text style={styles.descricao}>Sua loja de tecnologia na palma da sua mão.</Text>
+            <Text style={styles.subdescricao}>Conectando você com as melhores ofertas e tendências tecnológicas do mercado.</Text>
 
             
 
@@ -34,24 +39,34 @@ export default function Screen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff' ,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
+       
+
     },
+    bemVindo: {
+        width: 300,
+        height: 230,
+        resizeMode: 'cover',
+        marginBottom: 10
+    },
+    
     logo: {
         flexDirection : 'row',
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 20,
+        
     },
     img: {
-        width: 40,
-        height: 40,
+        width: 25,
+        height: 25,
         resizeMode: 'cover',
     },
     text: {
-        fontSize: 35,
+        fontSize: 20,
        
         fontWeight: 'bold',
         color: '#080a19',
@@ -63,23 +78,26 @@ const styles = StyleSheet.create({
 
     },
     descricao: {
-        fontSize: 17,
+        fontSize: 18,
         fontWeight: 'bold',
         color: '#080a19',
         textAlign: 'center',
-        marginBottom: 20,
+        justifyContent: 'center',
+        width: 210,
+        alignItems: 'center',
+        marginTop: 20,
 
 
     },
     subdescricao: {
         fontSize: 17,
-        fontWeight: 'bold',
         color: '#080a19',
         textAlign: 'center',
         justifyContent: 'center',
+        width: 200,
         alignItems: 'center',
-        marginBottom: 50,
-        marginTop: 20,
+        marginBottom: 20,
+        marginTop: 5,
     },
     txt: {
         fontSize: 20,
