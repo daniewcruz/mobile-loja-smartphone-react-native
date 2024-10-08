@@ -35,17 +35,17 @@ export const data: Data = {
         // Smartphones
         { id: 1, idCategory: 1, image: "https://images.samsung.com/is/image/samsung/p6pim/br/sm-a065mzkgzto/gallery/br-galaxy-a06-sm-a065-sm-a065mzkgzto-thumb-543344844?$172_172_PNG$", title: "Galaxy A06", description: "Tela AMOLED de 6.5 polegadas, câmera tripla de 48MP.", price: 800 },
         { id: 2, idCategory: 1, image: "https://images.samsung.com/is/image/samsung/p6pim/br/sm-f741blbjzto/gallery/br-galaxy-zflip6-f741-513506-sm-f741blbjzto-thumb-542639659?$172_172_PNG$", title: "Galaxy Z Flip6", description: "O design mais fino e leve 6,1 polegadas ", price: 6000 },
-        { id: 10, idCategory: 1, image: "https://m.media-amazon.com/images/I/71YFb10vWqL._AC_SL1500_.jpg", title: "iPhone 14", description: "Tela Super Retina XDR de 6.1 polegadas, câmera dupla de 12MP.", price: 4999.99 },
-        { id: 11, idCategory: 1, image: "https://m.media-amazon.com/images/I/81NI0UFvmtL._AC_SL1500_.jpg", title: "OnePlus 10 Pro", description: "Tela AMOLED de 6.7 polegadas, câmera tripla de 48MP.", price: 4299.99 },
-        { id: 12, idCategory: 1, image: "https://m.media-amazon.com/images/I/81OFHZV5CML._AC_SL1500_.jpg", title: "Google Pixel 7", description: "Tela OLED de 6.3 polegadas, Android 13, câmera de 50MP.", price: 3499.99 },
-        { id: 13, idCategory: 1, image: "https://m.media-amazon.com/images/I/710aDzAJgBL._AC_SL1500_.jpg", title: "Xiaomi Mi 12", description: "Processador Snapdragon 888, tela AMOLED de 6.81 polegadas.", price: 2899.99 },
-        { id: 14, idCategory: 1, image: "https://m.media-amazon.com/images/I/71MlcO29QOL._AC_SL1500_.jpg", title: "Sony Xperia 1 III", description: "Tela OLED de 6.5 polegadas, câmera tripla de 12MP.", price: 4999.99 },
-        { id: 15, idCategory: 1, image: "https://m.media-amazon.com/images/I/81dEn8JHJ2L._AC_SL1500_.jpg", title: "Motorola Edge 30 Pro", description: "Tela OLED de 6.7 polegadas, câmera de 50MP, 5G.", price: 2599.99 },
-        { id: 16, idCategory: 1, image: "https://m.media-amazon.com/images/I/81wz-HZdLlL._AC_SL1500_.jpg", title: "Samsung Galaxy S23", description: "Tela AMOLED de 6.1 polegadas, câmera de 50MP, 5G.", price: 3999.99 },
-        { id: 17, idCategory: 1, image: "https://m.media-amazon.com/images/I/81WyT2hN0aL._AC_SL1500_.jpg", title: "Nokia XR20", description: "Resistente a impactos e água, tela de 6.67 polegadas.", price: 1799.99 },
-        { id: 18, idCategory: 1, image: "https://m.media-amazon.com/images/I/61WAINtWPYL._AC_SL1500_.jpg", title: "Asus ROG Phone 6", description: "Tela AMOLED de 6.78 polegadas, processador Snapdragon 8+, 5G.", price: 5599.99 },
-        { id: 19, idCategory: 1, image: "https://m.media-amazon.com/images/I/71pVjBUOd2L._AC_SL1500_.jpg", title: "Realme GT2 Pro", description: "Tela AMOLED de 6.7 polegadas, câmera tripla de 50MP, 5G.", price: 3299.99 },
-        { id: 20, idCategory: 1, image: "https://m.media-amazon.com/images/I/61pXE2wTDsL._AC_SL1000_.jpg", title: "Vivo X80 Pro", description: "Tela AMOLED de 6.78 polegadas, câmera quádrupla de 50MP.", price: 4499.99 },
+        // { id: 10, idCategory: 1, image: "https://m.media-amazon.com/images/I/71YFb10vWqL._AC_SL1500_.jpg", title: "iPhone 14", description: "Tela Super Retina XDR de 6.1 polegadas, câmera dupla de 12MP.", price: 4999.99 },
+        // { id: 11, idCategory: 1, image: "https://m.media-amazon.com/images/I/81NI0UFvmtL._AC_SL1500_.jpg", title: "OnePlus 10 Pro", description: "Tela AMOLED de 6.7 polegadas, câmera tripla de 48MP.", price: 4299.99 },
+        // { id: 12, idCategory: 1, image: "https://m.media-amazon.com/images/I/81OFHZV5CML._AC_SL1500_.jpg", title: "Google Pixel 7", description: "Tela OLED de 6.3 polegadas, Android 13, câmera de 50MP.", price: 3499.99 },
+        // { id: 13, idCategory: 1, image: "https://m.media-amazon.com/images/I/710aDzAJgBL._AC_SL1500_.jpg", title: "Xiaomi Mi 12", description: "Processador Snapdragon 888, tela AMOLED de 6.81 polegadas.", price: 2899.99 },
+        // { id: 14, idCategory: 1, image: "https://m.media-amazon.com/images/I/71MlcO29QOL._AC_SL1500_.jpg", title: "Sony Xperia 1 III", description: "Tela OLED de 6.5 polegadas, câmera tripla de 12MP.", price: 4999.99 },
+        // { id: 15, idCategory: 1, image: "https://m.media-amazon.com/ima ges/I/81dEn8JHJ2L._AC_SL1500_.jpg", title: "Motorola Edge 30 Pro", description: "Tela OLED de 6.7 polegadas, câmera de 50MP, 5G.", price: 2599.99 },
+        // { id: 16, idCategory: 1, image: "https://m.media-amazon.com/images/I/81wz-HZdLlL._AC_SL1500_.jpg", title: "Samsung Galaxy S23", description: "Tela AMOLED de 6.1 polegadas, câmera de 50MP, 5G.", price: 3999.99 },
+        // { id: 17, idCategory: 1, image: "https://m.media-amazon.com/images/I/81WyT2hN0aL._AC_SL1500_.jpg", title: "Nokia XR20", description: "Resistente a impactos e água, tela de 6.67 polegadas.", price: 1799.99 },
+        // { id: 18, idCategory: 1, image: "https://m.media-amazon.com/images/I/61WAINtWPYL._AC_SL1500_.jpg", title: "Asus ROG Phone 6", description: "Tela AMOLED de 6.78 polegadas, processador Snapdragon 8+, 5G.", price: 5599.99 },
+        // { id: 19, idCategory: 1, image: "https://m.media-amazon.com/images/I/71pVjBUOd2L._AC_SL1500_.jpg", title: "Realme GT2 Pro", description: "Tela AMOLED de 6.7 polegadas, câmera tripla de 50MP, 5G.", price: 3299.99 },
+        // { id: 20, idCategory: 1, image: "https://m.media-amazon.com/images/I/61pXE2wTDsL._AC_SL1000_.jpg", title: "Vivo X80 Pro", description: "Tela AMOLED de 6.78 polegadas, câmera quádrupla de 50MP.", price: 4499.99 },
 
 
 

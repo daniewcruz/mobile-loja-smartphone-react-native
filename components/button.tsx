@@ -11,7 +11,7 @@ export const Button = ({ title, onPress}: Props ) => {
    return (
        <Pressable onPress={onPress} style={styles.button}>
          <Text style={styles.buttonText}>{title}</Text>
-       <Icon style={styles.buttonIcon} name="arrow-forward-outline" size={24} color="#fff" /> 
+       <Icon style={styles.buttonIcon} name="arrow-forward-outline" size={24} color="#080a19" /> 
        </Pressable>
    );
 }
@@ -19,11 +19,11 @@ export const Button = ({ title, onPress}: Props ) => {
 const styles = StyleSheet.create({
     button: {
         flexDirection: 'row',
-        backgroundColor: '#080a19',
+        backgroundColor: '#ffb341',
         borderRadius: 10,
         alignItems: 'center',
         
-        width: 265,
+        width: 280,
         height: 50,
 
         marginBottom: 20,
@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
     },
 
     buttonText: {
-        fontSize: 17,
-        color: '#ffffff',
+        fontSize: 18,
+        color: '#080a19',
         letterSpacing: 1.0,
         textTransform: 'uppercase',
         fontWeight: 'bold',
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
 
     buttonIcon: {
-        marginLeft: 10,
+        marginLeft: 5,
         borderRadius: 5
     }
 

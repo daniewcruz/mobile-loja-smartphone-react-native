@@ -133,6 +133,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        padding: 5,
+        bottom: 30,
 
     },
 
@@ -292,7 +294,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 20,
-        marginBottom: 6,
+        marginBottom: -10,
         marginTop: 20,
 
 
@@ -306,7 +308,7 @@ const styles = StyleSheet.create({
     container1: {
         backgroundColor: '#fffefc',
         flex: 1,
-        padding: 10,
+        padding: 5,
         borderRadius: 10,
         marginTop: 10,  
     },
