@@ -17,8 +17,17 @@ export default function TabsLayout() {
                     right: 0,
                     height: 50,
                     backgroundColor: '#080a19',   
+                    borderTopLeftRadius: 20,
+                    borderTopRightRadius: 20,
+                    borderTopWidth: 0,
+                    elevation: 1,
+                    shadowColor: '#fff',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+                   
 
-                    
+
                 
                     overflow: 'hidden'
 
