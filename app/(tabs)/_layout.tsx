@@ -70,8 +70,10 @@ export default function TabsLayout() {
             }} />
 
             <Tabs.Screen name="favoritos" options={{
-                 title: "Favoritos",
-                tabBarIcon: ({ color }) => <FontAwesome size={24} name="heart" color={color} />
+                 title: "Produtos Favoritados",
+                tabBarIcon: ({ color }) => <FontAwesome size={24} name="heart" color={color} />,
+                headerStyle: { backgroundColor: '#fff'}, 
+         headerTitleAlign: "center", headerTintColor: '#080a19', headerTitleStyle: { fontWeight: 'bold' }, headerShadowVisible: false
             }} />
 
 

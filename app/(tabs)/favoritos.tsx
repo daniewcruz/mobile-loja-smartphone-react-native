@@ -1,14 +1,30 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
-import { data } from '../../data'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { data } from '../../data';
+import { useFocusEffect } from '@react-navigation/native'; // Importar useFocusEffect
 
 const Favoritos = () => {
-  // Simulação de produtos favoritados (em um cenário real, isso viria de um banco de dados ou armazenamento local)
-  const [favoritos, setFavoritos] = useState([1, 3, 5]); // IDs dos produtos favoritados
+  const [favoritos, setFavoritos] = useState<number[]>([]); // IDs dos produtos favoritados
+  const [produtosFavoritados, setProdutosFavoritados] = useState<any[]>([]); // Produtos filtrados
 
-  // Filtra os produtos favoritados
-  const produtosFavoritados = data.products.filter(product => favoritos.includes(product.id));
+  useFocusEffect(
+    React.useCallback(() => {
+      const loadFavorites = async () => {
+        const storedFavorites = await AsyncStorage.getItem('favorites');
+        const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+        setFavoritos(favorites);
+      };
+
+      loadFavorites();
+    }, [])
+  );
+
+  // Atualizar a lista de produtos favoritados quando 'favoritos' mudar
+  useEffect(() => {
+    const filteredProducts = data.products.filter(product => favoritos.includes(product.id));
+    setProdutosFavoritados(filteredProducts);
+  }, [favoritos]);
 
   // Renderiza cada item favoritado
   const renderProduto = ({ item }: { item: any }) => (
@@ -29,15 +45,20 @@ const Favoritos = () => {
   );
 
   // Função para remover um item dos favoritos
-  const handleRemoveFavorite = (id: number) => {
-    setFavoritos(favoritos.filter(favId => favId !== id));
+  const handleRemoveFavorite = async (id: number) => {
+    const updatedFavorites = favoritos.filter(favId => favId !== id);
+    setFavoritos(updatedFavorites);
+    await AsyncStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Produtos Favoritados</Text>
+     
       {produtosFavoritados.length === 0 ? (
-        <Text style={styles.emptyMessage}>Você não tem produtos favoritados no momento.</Text>
+        <View style={styles.emptyState}>
+          <Image source={require('../../assets/caixa-vazia.png')} style={styles.emptyImage} />
+          <Text style={styles.emptyMessage}>Você não tem produtos favoritados no momento.</Text>
+        </View>
       ) : (
         <FlatList
           data={produtosFavoritados}
@@ -49,25 +70,31 @@ const Favoritos = () => {
   );
 };
 
+
+
 // Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
+    marginTop: 20,
     marginBottom: 20,
     textAlign: 'center',
   },
   card: {
     flexDirection: 'row',
+    width: 350,
+    alignItems: 'center',
     marginBottom: 20,
     padding: 10,
     borderRadius: 8,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 5,
@@ -100,7 +127,7 @@ const styles = StyleSheet.create({
   },
   removeButton: {
     marginTop: 10,
-    backgroundColor: '#ffb341',
+    backgroundColor: '#e40101',
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
@@ -111,8 +138,18 @@ const styles = StyleSheet.create({
   },
   emptyMessage: {
     fontSize: 16,
-    color: '#666',
+    width: '95%',
+    color: '#2c2b2b',
     textAlign: 'center',
+  },
+  emptyState: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyImage: {
+    width: 150,
+    height: 150,
+    marginBottom: 10,
   },
 });
 

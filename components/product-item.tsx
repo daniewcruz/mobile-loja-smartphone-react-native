@@ -1,35 +1,80 @@
 import { Link } from "expo-router";
-import { Product } from "../types/product"
-import { View, Text, Pressable, StyleSheet, Image } from "react-native"
+import { Product } from "../types/product";
+import { View, Text, Pressable, StyleSheet, Image, Alert } from "react-native";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import React, { useState, useEffect } from 'react';
+import { ToastAndroid, Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native'; // Importar useFocusEffect
 
 type Props = {
-
-    data: Product
+    data: Product;
 }
 
-export default function ProductItem({data}: Props) {
-    return(
-    //rota dinamica para o produto especifico      
-    <Link href={`/product/${data.id}`} asChild>
-    <Pressable style={styles.container}>
-        <Image
-        style={styles.img}
-        source={{uri: data.image}}
-        resizeMode="cover"
-        />
-        <View style={styles.info}>
-            <View style={styles.favorite}>
-            <FontAwesome name="heart-o" size={22} color="#ffb341" />
-            </View>
-            <Text style={styles.title}>{data.title}</Text>
-            <Text style={styles.description}>{data.description}</Text>
-            <Text style={styles.price}>R${data.price.toFixed(2)}</Text>
-        </View>
-    </Pressable>
-    </Link>
+export default function ProductItem({ data }: Props) {
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    // Função para carregar os favoritos
+    const loadFavorites = async () => {
+        const storedFavorites = await AsyncStorage.getItem('favorites');
+        const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+        setIsFavorite(favorites.includes(data.id));
+    };
+
+    useFocusEffect(
+        React.useCallback(() => {
+            loadFavorites(); // Carregar favoritos quando a página é focada
+        }, [])
+    );
+
+    const toggleFavorite = async () => {
+        const storedFavorites = await AsyncStorage.getItem('favorites');
+        const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+        if (favorites.includes(data.id)) {
+            const newFavorites = favorites.filter((id: number) => id !== data.id);
+            await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites));
+            setIsFavorite(false);
+            showToast("Produto removido dos favoritos");
+        } else {
+            favorites.push(data.id);
+            await AsyncStorage.setItem('favorites', JSON.stringify(favorites));
+            setIsFavorite(true);
+            showToast("Produto adicionado aos favoritos");
+        }
+    };
+
+    const showToast = (message: string) => {
+        if (Platform.OS === 'android') {
+            ToastAndroid.show(message, ToastAndroid.SHORT);
+        } else {
+            Alert.alert(message);
+        }
+    };
+
+    return (
+        <Link href={`/product/${data.id}`} asChild>
+            <Pressable style={styles.container}>
+                <Image
+                    style={styles.img}
+                    source={{ uri: data.image }}
+                    resizeMode="cover"
+                />
+                <View style={styles.info}>
+                    <Pressable onPress={toggleFavorite} style={styles.favorite}>
+                        <FontAwesome name={isFavorite ? "heart" : "heart-o"} size={22} color="#ffb341" />
+                    </Pressable>
+                    <Text style={styles.title}>{data.title}</Text>
+                    <Text style={styles.description}>{data.description}</Text>
+                    <Text style={styles.price}>R$ {data.price.toFixed(2)}</Text>
+                </View>
+            </Pressable>
+        </Link>
     );
 }
+
+
+
 
 const styles = StyleSheet.create({
     container: {

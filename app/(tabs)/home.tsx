@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { getAllProducts } from "../../services/product";
 import ProductItem from "../../components/product-item";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function Home() {
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: 20,
         paddingVertical: 5,
-        marginTop: -10,
+        marginTop: -2,
         marginBottom: 10,
         position: 'relative',
 
