@@ -141,14 +141,15 @@ const styles = StyleSheet.create({
     width: '95%',
     color: '#2c2b2b',
     textAlign: 'center',
+    fontWeight: 'bold',
   },
   emptyState: {
     alignItems: 'center',
     justifyContent: 'center',
   },
   emptyImage: {
-    width: 150,
-    height: 150,
+    width: 110,
+    height: 110,
     marginBottom: 10,
   },
 });

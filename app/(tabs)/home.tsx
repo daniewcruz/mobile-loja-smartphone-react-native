@@ -1,13 +1,23 @@
 
-import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, FlatList } from 'react-native';
+import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, FlatList, Pressable,  } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { getAllProducts } from "../../services/product";
 import ProductItem from "../../components/product-item";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { router } from 'expo-router';
+
+
+
 
 
 export default function Home() {
+
+
+
+
+
+
     const products = getAllProducts();
     
     return (
@@ -37,7 +47,7 @@ export default function Home() {
 
 
             <View style={styles.bannerContainer}>
-                <ScrollView horizontal={true} >
+                <ScrollView horizontal={true}>
 
                     <View style={styles.banner}>
 
@@ -58,10 +68,12 @@ export default function Home() {
             <View style={styles.categorias}>
                 <Text style={styles.categoriasText}>Categorias</Text>
 
+                <Pressable onPress={() => router.replace('/categories')}>
                 <View style={styles.categorias2}>
                     <Text  >Mais  </Text>
                     <Icon name="chevron-forward-outline" size={18} color="#757575" />
                 </View>
+                </Pressable>
             </View>
 
 
@@ -91,9 +103,12 @@ export default function Home() {
                         </View>
                     </View>
 
+                        
                     <View style={styles.backgroundCategorias}>
                         <Image source={require('../../assets/CCTV.png')} style={styles.cellImg} />
                     </View>
+                   
+                    
                 </ScrollView>
             </View>
 
@@ -257,8 +272,8 @@ const styles = StyleSheet.create({
 
     backgroundCategorias: {
         flexDirection: 'row',
-        height: 51,
-        width: 61,
+        height: 50,
+        width: 60,
         borderRadius: 10,
 
         borderColor: '#080a19',
