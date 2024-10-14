@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         paddingHorizontal: 20,
         paddingVertical: 5,
-        marginTop: -2,
+        marginTop: 3,
         marginBottom: 10,
         position: 'relative',
 
@@ -239,9 +239,13 @@ const styles = StyleSheet.create({
     },
 
     bannerImg: {
+
         resizeMode: 'cover',
         marginRight: 5,
         marginLeft: 10,
+        borderRadius: 10,
+
+        
     },
 
     categorias: {
@@ -272,7 +276,7 @@ const styles = StyleSheet.create({
 
     backgroundCategorias: {
         flexDirection: 'row',
-        height: 50,
+        height: 45,
         width: 60,
         borderRadius: 10,
 
@@ -289,19 +293,25 @@ const styles = StyleSheet.create({
 
     IconGameImg: {
         resizeMode: 'cover',
-        width: 45,
-        height: 45,
+        width: 35,
+        height: 35,
 
     },
 
     cellImg: {
-        resizeMode: 'cover',
+        resizeMode: 'contain',
+        width: 30,
+        height: 35,
+        
 
 
     },
 
     categoriaImg: {
-        resizeMode: 'cover',
+        resizeMode: 'contain',
+        width: 40,
+        height: 40,
+       
 
     },
 

@@ -91,7 +91,7 @@ export default function TabsLayout() {
                         marginBottom: 15
                     },
                     headerTitleAlign: "center",
-                    headerStyle: { backgroundColor: '#fff' },
+                    headerStyle: { backgroundColor: '#fff'},
                     tabBarIcon: ({ color }) => <FontAwesome size={24} name="home" color={color} />
                 }}
             />
@@ -124,7 +124,7 @@ export default function TabsLayout() {
             <Tabs.Screen name="usuario" options={{
                 title: "Meu Perfil",
                 tabBarIcon: ({ color }) => <FontAwesome size={24} name="user" color={color} />,
-                headerStyle: { backgroundColor: '#ffb341' },
+                headerStyle: { backgroundColor: '#fff' },
                 headerTitleAlign: "center", headerTintColor: '#080a19', headerTitleStyle: { fontWeight: 'bold' }, headerShadowVisible: false
 
 
