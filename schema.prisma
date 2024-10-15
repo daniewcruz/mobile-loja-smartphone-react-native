@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["reactNative"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./app.db"
+}
+
+model Product {
+  id           Int      @id @default(autoincrement()) // Identificador único para o produto
+  title        String   // Nome do produto
+  description  String   // Descrição do produto
+  price        Float    // Preço do produto
+  image        String   // URL da imagem do produto
+  favorite     Boolean  @default(false) // Flag para indicar se é favorito (por padrão, não é)
+  categoryId   Int      // Relacionamento com a categoria
+  category     Category @relation(fields: [categoryId], references: [id]) // Associação com o modelo Category
+  createdAt    DateTime @default(now())  // Data e hora de criação do produto
+  updatedAt    DateTime @updatedAt       // Data e hora de atualização automática
+}
+
+model Category {
+  id           Int       @id @default(autoincrement()) // Identificador único para a categoria
+  title        String    // Nome da categoria
+  cover        String    // URL da imagem de capa da categoria
+  products     Product[] // Relacionamento com os produtos
+}
