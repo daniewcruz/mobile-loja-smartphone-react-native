@@ -1,149 +1,312 @@
 
-import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, FlatList, Pressable,  } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { getAllProducts } from "../../services/product";
-import ProductItem from "../../components/product-item";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { router } from 'expo-router';
-
-
-
-
-
-export default function Home() {
+// import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, FlatList, Pressable,  } from 'react-native';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import Icon from 'react-native-vector-icons/Ionicons';
+// import { getAllProducts } from "../../services/product";
+// import ProductItem from "../../components/product-item";
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { router } from 'expo-router';
+// import { useEffect, useState } from 'react';
+// import { db } from '../../firebase';
 
 
 
 
 
 
-    const products = getAllProducts();
+// export default function Home() {
+
+
+
+
+
+
+//     const [products, setProducts] = useState<{ id: string; [key: string]: any }[]>([]);
+
+//     const [loading, setLoading] = useState(true);
+  
+//     useEffect(() => {
+//       const fetchProducts = async () => {
+//         try {
+//           const productsSnapshot = await db.collection('products').get();
+//           const productsList = productsSnapshot.docs.map(doc => ({
+//             id: doc.id,
+//             ...doc.data()
+//           }));
+//           setProducts(productsList);
+//           setLoading(false);
+//         } catch (error) {
+//           console.error('Erro ao buscar os produtos:', error);
+//           setLoading(false);
+//         }
+//       };
+  
+//       fetchProducts();
+//     }, []);
+  
+//     if (loading) {
+//       return (
+//         <View style={styles.loadingContainer}>
+//           <Text>Carregando...</Text>
+//         </View>
+//       );
+//     }
+  
     
-    return (
-        <View>
-        <ScrollView>
-        <SafeAreaView style={styles.container} >
+//     return (
+//         <View>
+//         <ScrollView>
+//         <SafeAreaView style={styles.container} >
            
-            <StatusBar />
-            <View style={styles.pesquisarcx}>
+//             <StatusBar />
+//             <View style={styles.pesquisarcx}>
 
-                <View style={styles.pesquisa}>
-                    <Icon name="search-outline" size={24} color="#757575" style={styles.pesquisaIcon} />
-                </View>
+//                 <View style={styles.pesquisa}>
+//                     <Icon name="search-outline" size={24} color="#757575" style={styles.pesquisaIcon} />
+//                 </View>
 
-                <TextInput
-                    style={styles.input}
-                    placeholder="Pesquisar por produto..."
-                    placeholderTextColor="#9e9e9e"
-
-
-                />
-
-                <View style={styles.sinoRedondo}>
-                    <Icon name="notifications-outline" size={24} color="#757575" style={styles.sinoIcon} />
-                </View>
-            </View>
+//                 <TextInput
+//                     style={styles.input}
+//                     placeholder="Pesquisar por produto..."
+//                     placeholderTextColor="#9e9e9e"
 
 
-            <View style={styles.bannerContainer}>
-                <ScrollView horizontal={true}>
+//                 />
 
-                    <View style={styles.banner}>
-
-                        <Image source={require('../../assets/banner1.png')} style={styles.bannerImg} />
-                        <Image source={require('../../assets/banner2.png')} style={styles.bannerImg} />
-
-                    </View>
-
-                </ScrollView>
-            </View>
+//                 <View style={styles.sinoRedondo}>
+//                     <Icon name="notifications-outline" size={24} color="#757575" style={styles.sinoIcon} />
+//                 </View>
+//             </View>
 
 
+//             <View style={styles.bannerContainer}>
+//                 <ScrollView horizontal={true}>
+
+//                     <View style={styles.banner}>
+
+//                         <Image source={require('../../assets/banner1.png')} style={styles.bannerImg} />
+//                         <Image source={require('../../assets/banner2.png')} style={styles.bannerImg} />
+
+//                     </View>
+
+//                 </ScrollView>
+//             </View>
 
 
 
 
 
-            <View style={styles.categorias}>
-                <Text style={styles.categoriasText}>Categorias</Text>
-
-                <Pressable onPress={() => router.replace('/categories')}>
-                <View style={styles.categorias2}>
-                    <Text  >Mais  </Text>
-                    <Icon name="chevron-forward-outline" size={18} color="#757575" />
-                </View>
-                </Pressable>
-            </View>
 
 
+//             <View style={styles.categorias}>
+//                 <Text style={styles.categoriasText}>Categorias</Text>
+
+//                 <Pressable onPress={() => router.replace('/categories')}>
+//                 <View style={styles.categorias2}>
+//                     <Text  >Mais  </Text>
+//                     <Icon name="chevron-forward-outline" size={18} color="#757575" />
+//                 </View>
+//                 </Pressable>
+//             </View>
 
 
-            <View>
-                <ScrollView horizontal={true}>
-
-                    <View style={styles.containerCategorias}>
-
-                        <View style={styles.backgroundCategorias}>
-                            <Image source={require('../../assets/Laptop.png')} style={styles.categoriaImg} />
-                        </View>
-
-                        <View style={styles.backgroundCategorias}>
-                            <Image source={require('../../assets/Camera.png')} style={styles.categoriaImg} />
-                        </View>
 
 
-                        <View style={styles.backgroundCategorias}>
-                            <Image source={require('../../assets/Smartphone.png')} style={styles.cellImg} />
-                        </View>
+//             <View>
+//                 <ScrollView horizontal={true}>
+
+//                     <View style={styles.containerCategorias}>
+
+//                         <View style={styles.backgroundCategorias}>
+//                             <Image source={require('../../assets/Laptop.png')} style={styles.categoriaImg} />
+//                         </View>
+
+//                         <View style={styles.backgroundCategorias}>
+//                             <Image source={require('../../assets/Camera.png')} style={styles.categoriaImg} />
+//                         </View>
 
 
-                        <View style={styles.backgroundCategorias}>
-                            <Image source={require('../../assets/playstation.png')} style={styles.IconGameImg} />
-                        </View>
-                    </View>
+//                         <View style={styles.backgroundCategorias}>
+//                             <Image source={require('../../assets/Smartphone.png')} style={styles.cellImg} />
+//                         </View>
+
+
+//                         <View style={styles.backgroundCategorias}>
+//                             <Image source={require('../../assets/playstation.png')} style={styles.IconGameImg} />
+//                         </View>
+//                     </View>
 
                         
-                    <View style={styles.backgroundCategorias}>
-                        <Image source={require('../../assets/CCTV.png')} style={styles.cellImg} />
-                    </View>
+//                     <View style={styles.backgroundCategorias}>
+//                         <Image source={require('../../assets/CCTV.png')} style={styles.cellImg} />
+//                     </View>
                    
                     
-                </ScrollView>
-            </View>
+//                 </ScrollView>
+//             </View>
 
 
 
-            <View style={styles.principais}>
-                <Text style={styles.principaisText}>Principais Ofertas </Text>
+//             <View style={styles.principais}>
+//                 <Text style={styles.principaisText}>Principais Ofertas </Text>
 
-                <View style={styles.categorias2}>
-                    <Text  >Mais  </Text>
-                    <Icon name="chevron-forward-outline" size={18} color="#757575" />
-                </View>
+//                 <View style={styles.categorias2}>
+//                     <Text  >Mais  </Text>
+//                     <Icon name="chevron-forward-outline" size={18} color="#757575" />
+//                 </View>
 
-            </View>
+//             </View>
 
 
-            <View style={styles.container1}>
-            <FlatList
-                data={products}
-                renderItem={({ item }) => <ProductItem data={item} />}
-                keyExtractor={item => item.id.toString()}
-                style={styles.list}
-            />
-        </View>
+//             <View style={styles.container1}>
+//             <FlatList
+//                 data={products}
+//                 renderItem={({ item }) => <ProductItem data={item} />}
+//                 keyExtractor={item => item.id.toString()}
+//                 style={styles.list}
+//             />
+//         </View>
             
 
 
 
 
 
-        </SafeAreaView>
-        </ScrollView>
+//         </SafeAreaView>
+//         </ScrollView>
+//         </View>
+//     );
+// }
+
+
+
+
+import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, FlatList, Pressable } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useEffect, useState } from 'react';
+import { db } from '../../firebase';  // Assumindo que o arquivo de configuração do Firebase está correto
+import ProductItem from "../../components/product-item";  // Certifique-se de que este componente está configurado corretamente
+import { router } from 'expo-router';
+
+export default function Home() {
+    const [products, setProducts] = useState<{ id: string; [key: string]: any }[]>([]);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+        const fetchProducts = async () => {
+          try {
+            const productsSnapshot = await db.collection('products').get();
+            const productsList = productsSnapshot.docs.map(doc => {
+              const data = doc.data();
+              
+              // Garantir que todos os campos do tipo 'Product' estejam presentes
+              return {
+                id: doc.id, // O ID do documento do Firebase
+                idCategory: data.idCategory || '', // Supondo que 'idCategory' pode estar ausente
+                image: data.image || '', // Garantir que 'image' esteja presente
+                title: data.title || 'Sem título', // Defina um valor padrão para 'title'
+                description: data.description || 'Sem descrição', // Valor padrão para 'description'
+                price: data.price || 0, // Valor padrão para 'price'
+              };
+            });
+            setProducts(productsList);
+            setLoading(false);
+          } catch (error) {
+            console.error('Erro ao buscar os produtos:', error);
+            setLoading(false);
+          }
+        };
+      
+        fetchProducts();
+      }, []);
+  
+
+    return (
+        <View>
+            <ScrollView>
+                <SafeAreaView style={styles.container}>
+                    <StatusBar />
+                    
+                    {/* Caixa de Pesquisa */}
+                    <View style={styles.pesquisarcx}>
+                        <View style={styles.pesquisa}>
+                            <Icon name="search-outline" size={24} color="#757575" style={styles.pesquisaIcon} />
+                        </View>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Pesquisar por produto..."
+                            placeholderTextColor="#9e9e9e"
+                        />
+                        <View style={styles.sinoRedondo}>
+                            <Icon name="notifications-outline" size={24} color="#757575" style={styles.sinoIcon} />
+                        </View>
+                    </View>
+
+                    {/* Banner */}
+                    <View style={styles.bannerContainer}>
+                        <ScrollView horizontal={true}>
+                            <View style={styles.banner}>
+                                <Image source={require('../../assets/banner1.png')} style={styles.bannerImg} />
+                                <Image source={require('../../assets/banner2.png')} style={styles.bannerImg} />
+                            </View>
+                        </ScrollView>
+                    </View>
+
+                    {/* Categorias */}
+                    <View style={styles.categorias}>
+                        <Text style={styles.categoriasText}>Categorias</Text>
+                        <Pressable onPress={() => router.replace('/categories')}>
+                            <View style={styles.categorias2}>
+                                <Text>Mais</Text>
+                                <Icon name="chevron-forward-outline" size={18} color="#757575" />
+                            </View>
+                        </Pressable>
+                    </View>
+
+                    <ScrollView horizontal={true}>
+                        <View style={styles.containerCategorias}>
+                            <View style={styles.backgroundCategorias}>
+                                <Image source={require('../../assets/Laptop.png')} style={styles.categoriaImg} />
+                            </View>
+                            <View style={styles.backgroundCategorias}>
+                                <Image source={require('../../assets/Camera.png')} style={styles.categoriaImg} />
+                            </View>
+                            <View style={styles.backgroundCategorias}>
+                                <Image source={require('../../assets/Smartphone.png')} style={styles.cellImg} />
+                            </View>
+                            <View style={styles.backgroundCategorias}>
+                                <Image source={require('../../assets/playstation.png')} style={styles.IconGameImg} />
+                            </View>
+                        </View>
+                    </ScrollView>
+
+                    {/* Principais Ofertas */}
+                    <View style={styles.principais}>
+                        <Text style={styles.principaisText}>Principais Ofertas</Text>
+                        <View style={styles.categorias2}>
+                            <Text>Mais</Text>
+                            <Icon name="chevron-forward-outline" size={18} color="#757575" />
+                        </View>
+                    </View>
+
+                    {/* Lista de Produtos */}
+                    <View style={styles.container1}>
+                        <FlatList
+                            data={products}  // Dados dos produtos vindos do Firebase
+                            renderItem={({ item }) => <ProductItem data={item} />}  // Usando o componente ProductItem para renderizar os produtos
+                            keyExtractor={item => item.id.toString()}  // Garantindo que a chave seja única
+                            style={styles.list}
+                        />
+                    </View>
+                </SafeAreaView>
+            </ScrollView>
         </View>
     );
 }
+
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -337,6 +500,11 @@ const styles = StyleSheet.create({
         padding: 10,
 
     },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
 
         
 
