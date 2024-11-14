@@ -4,11 +4,16 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@prisma/client": "5.20.0",
+    "@prisma/react-native": "5.20.0",
+>>>>>>> fa24dfffc0d827a7ca976229a19b47224c52c38b
     "@react-native-async-storage/async-storage": "1.23.1",
     "expo-constants": "~16.0.2",
     "expo-linking": "~6.3.1",
@@ -18,9 +23,15 @@
     "react": "18.2.0",
     "react-native": "^0.75.4",
     "react-native-elements": "^3.4.3",
+    "react-native-quick-base64": "2.1.2",
     "react-native-safe-area-context": "^4.11.0",
     "react-native-screens": "^3.34.0",
+<<<<<<< HEAD
     "react-native-vector-icons": "^10.2.0"
+=======
+    "react-native-vector-icons": "^10.2.0",
+    "expo": "~51.0.28"
+>>>>>>> fa24dfffc0d827a7ca976229a19b47224c52c38b
   },
   "devDependencies": {
     "@babel/core": "^7.25.7",
